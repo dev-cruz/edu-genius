@@ -17,6 +17,10 @@ export class OpenAIService {
   }
 
   private prompt(level:string, subject:string, questions: number): string {
-    return `Gere ${questions} questões de múltipla escolha do nível ${level} da disciplina ${subject}`
+    return `Gere ${questions} questões de múltipla escolha do nível ${level} da disciplina ${subject} com as respostas, o resultado deve vir no formato JSON, seguindo o padrao: ${this.anwersFormat()}`
+  }
+
+  private anwersFormat(): string {
+    return `{"question": questão, "answers": [{a: alternativa 1, b: alternativa 2 ...}], "correctAnswer": letra da alternativa correta}`;
   }
 }
