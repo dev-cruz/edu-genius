@@ -3,7 +3,7 @@ Dar a oportunidade para o aluno aprender a mesma materia em niveis diferentes
 Do lado admin (professor):
 - Teremos uma base de conteudos que sera persistida por um professor da escola.
   - Ele deve inserir um topico, uma matéria e um texto contendo a explicacao;
-  - A aplicação irá retornar o mesmo conteúdo explicado de 3 formas diferentes:
+  - A aplicação irá retornar o mesmo conteúdo explicado de 2 formas diferentes:
     - Nível criança de 8 anos;
     - Nível ponto de vista diferente;
     - E insere na base;
