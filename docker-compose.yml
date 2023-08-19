@@ -10,6 +10,16 @@ services:
     volumes:
       - .:/app:cached
       - edu-genius-node-modules:/app/node_modules
+  db:
+    image: postgres:13.3-alpine
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: edu-genius
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d
 
 volumes:
   edu-genius-node-modules:
