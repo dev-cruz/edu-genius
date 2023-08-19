@@ -1,0 +1,39 @@
+User:
+  id: integer
+  university_id: integer
+  name: string
+  email: string
+
+University:
+  id: integer
+  name: string
+  email: string
+
+Prompt:
+  id: integer
+  input: string
+  response: string
+
+Question:
+  id: integer
+  prompt_id: integer
+  subject_id: integer
+  level: string
+  description: string
+  alteternatives: string[] // json
+  correct_answer: string
+
+UserQuestion:
+  id: integer
+  user_id: integer
+  question_id: integer
+  answer: string
+  is_correct: boolean
+  time: integer
+
+Subject: 
+  id: integer
+  name: string
+  description: string
+
+
