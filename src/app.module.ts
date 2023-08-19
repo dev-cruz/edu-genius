@@ -10,5 +10,6 @@ import { DomainModule } from 'src/domain/domain.module';
   imports: [ConfigModule.forRoot(), DomainModule],
   controllers: [AppController],
   providers: [AppService, OpenAIService, OpenAIConfig],
+  exports: []
 })
 export class AppModule { }

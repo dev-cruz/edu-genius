@@ -5,7 +5,8 @@ export class UserQuestionService {
     registryRequest: UserQuestionRegistry[],
   ): Promise<void> {
     for (const registry of registryRequest) {
-      await this.userQuestionRepository.create(registry);
+      // await this.userQuestionRepository.create(registry);
+      return;
     }
   }
 }

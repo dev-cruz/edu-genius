@@ -5,9 +5,9 @@ import { OpenAIConfig } from './openAIConfig';
 export class OpenAIService {
   constructor(private readonly openai: OpenAIConfig) {}
     
-  async generateQuestions(level:string, subject:string, questions: number): Promise<any> {  
+  async generateQuestions(level:string, subject:string, numberOfQuestions: number): Promise<any> {  
     const completion = await this.openai.instance().chat.completions.create({
-      messages: [{ role: 'user', content: this.prompt(level, subject, questions)}],
+      messages: [{ role: 'user', content: this.prompt(level, subject, numberOfQuestions)}],
       model: 'gpt-3.5-turbo',
     });
 
