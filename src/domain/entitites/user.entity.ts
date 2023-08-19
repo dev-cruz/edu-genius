@@ -6,4 +6,8 @@ export class User {
   public email: string;
   public universityId: number;
   public univesrity: University;
+
+  constructor(data: Partial<User>) {
+    Object.assign(this, data);
+  }
 }
