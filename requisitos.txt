@@ -45,33 +45,6 @@ Teremos uma base de dados para:
 
 Rotas
 Para os dois:
-/list_subjects
-response: {
-  subjects: [
-    {
-      id: 1,
-      name: "Matemática",
-      parent_id: null,
-      children: [
-        {
-          id: 2,
-          name: "Álgebra",
-          parent_id: 1,
-          children: [
-            {
-              id: 3,
-              name: "Álgebra Linear",
-              parent_id: 2,
-              children: []
-            }
-          ]
-        }
-      ]
-    }
-    ...
-  ]
-}
-
 Para o professor:
 /register_teacher
 request: {
@@ -136,5 +109,32 @@ response: {
       content: "Matematica eh bem legal",
       level: "ponto de vista",
     }
+  ]
+}
+
+/list_subjects
+response: {
+  subjects: [
+    {
+      id: 1,
+      name: "Matemática",
+      parent_id: null,
+      children: [
+        {
+          id: 2,
+          name: "Álgebra",
+          parent_id: 1,
+          children: [
+            {
+              id: 3,
+              name: "Álgebra Linear",
+              parent_id: 2,
+              children: []
+            }
+          ]
+        }
+      ]
+    }
+    ...
   ]
 }
