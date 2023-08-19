@@ -7,9 +7,14 @@ services:
     tty: true
     stdin_open: true
     working_dir: /app
+    environment:
+      DATABASE_URL: "postgresql://postgres:postgres@localhost:5432/edu-genius?schema=public"
     volumes:
       - .:/app:cached
       - edu-genius-node-modules:/app/node_modules
+    depends_on:
+      - db
+
   db:
     image: postgres:13.3-alpine
     ports:
