@@ -18,6 +18,7 @@ Question:
   id: integer
   prompt_id: integer
   subject_id: integer
+  level: string
   description: string
   alteternatives: string[] // json
   correct_answer: string
