@@ -14,7 +14,7 @@ export class AppController {
   constructor(
     private userService: UserService,
     private subjectService: SubjectService,
-    private QuestionService: QuestionService,
+    private questionService: QuestionService,
     private userQuestionService: UserQuestionService,
   ) { }
 
@@ -35,7 +35,7 @@ export class AppController {
   async generateQuestions(
     @Body() request: QuestionFilters,
   ): Promise<Question[]> {
-    return this.QuestionService.getByFilters(request);
+    return this.questionService.getByFilters(request);
   }
 
   @Post('/register_user_answers')

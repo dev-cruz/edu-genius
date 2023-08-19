@@ -2,8 +2,8 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { OpenAIService } from './opeani/openAIService';
-import { OpenAIConfig } from './opeani/openAIConfig';
+import { OpenAIService } from './openAI/openAIService';
+import { OpenAIConfig } from './openAI/openAIConfig';
 import { DomainModule } from 'src/domain/domain.module';
 
 @Module({
