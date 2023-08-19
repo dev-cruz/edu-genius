@@ -6,7 +6,7 @@ import { Injectable } from '@nestjs/common';
 export class OpenAIConfig {
   instance(): OpenAI {
     return new OpenAI({
-      apiKey: process.env["OPENAI_API_KEY"],
+      apiKey: process.env.OPENAI_API_KEY,
     });
   }
 }
