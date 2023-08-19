@@ -28,7 +28,7 @@ UserQuestion:
   user_id: integer
   question_id: integer
   answer: string
-  correct: boolean
+  is_correct: boolean
   time: integer
 
 Subject: 
