@@ -1,0 +1,15 @@
+services:
+  edu-genius:
+    image: node:18.17.0
+    command: make quero-boot-startup
+    ports:
+      - 3000:3000
+    tty: true
+    stdin_open: true
+    working_dir: /app
+    volumes:
+      - .:/app:cached
+      - edu-genius-node-modules:/app/node_modules
+
+volumes:
+  edu-genius-node-modules:
