@@ -10,56 +10,33 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id            Int          @id @default(autoincrement())
-  university_id Int
-  name          String
-  email         String
-  university    University   @relation(fields: [university_id], references: [id])
-  questions     UserQuestion[]
-}
-
-model University {
-  id       Int     @id @default(autoincrement())
-  name     String
-  email    String
-  users    User[]
-}
-
-model Prompt {
-  id       Int     @id @default(autoincrement())
-  input    String
-  response String
-  questions Question[]
-}
-
-model Question {
-  id             Int           @id @default(autoincrement())
-  prompt_id      Int
-  subject_id     Int
-  level          String
-  description    String
-  alteternatives String[]      // json
-  correct_answer String
-  prompt         Prompt        @relation(fields: [prompt_id], references: [id])
-  subject        Subject       @relation(fields: [subject_id], references: [id])
-  userQuestions  UserQuestion[]
-}
-
-model UserQuestion {
-  id          Int      @id @default(autoincrement())
-  user_id     Int
-  question_id Int
-  answer      String
-  is_correct     Boolean
-  time        Int
-  user        User     @relation(fields: [user_id], references: [id])
-  question    Question @relation(fields: [question_id], references: [id])
+model Teacher {
+  id    Int    @id @default(autoincrement())
+  name  String
+  email String
 }
 
 model Subject {
-  id          Int        @id @default(autoincrement())
-  name        String
-  description String
-  questions   Question[]
+  id        Int       @id @default(autoincrement())
+  name      String
+  parent_id Int?
+  parent    Subject?  @relation("SubjectParent", fields: [parent_id], references: [id])
+  children  Subject[] @relation("SubjectParent")
+  Content   Content[]
+}
+
+model Content {
+  id            Int             @id @default(autoincrement())
+  filepath      String
+  subject_id    Int
+  subject       Subject         @relation(fields: [subject_id], references: [id])
+  ContentResult ContentResult[]
+}
+
+model ContentResult {
+  id         Int     @id @default(autoincrement())
+  level      String
+  filepath   String
+  content_id Int
+  content    Content @relation(fields: [content_id], references: [id])
 }

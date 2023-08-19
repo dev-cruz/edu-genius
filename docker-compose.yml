@@ -8,7 +8,7 @@ services:
     stdin_open: true
     working_dir: /app
     environment:
-      DATABASE_URL: "postgresql://postgres:postgres@localhost:5432/edu-genius?schema=public"
+      DATABASE_URL: "postgresql://postgres:postgres@db:5432/edu-genius?schema=public"
     volumes:
       - .:/app:cached
       - edu-genius-node-modules:/app/node_modules
