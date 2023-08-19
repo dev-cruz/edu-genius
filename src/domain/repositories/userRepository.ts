@@ -1,3 +1,5 @@
+import { User } from 'src/domain/entitites/user.entity';
+
 export interface IUserRepository {
-  create(name: string, email: string): Promise<User>;
+  findOrCreate(user: User): Promise<User>;
 }
