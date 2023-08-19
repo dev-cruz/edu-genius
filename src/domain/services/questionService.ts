@@ -9,7 +9,7 @@ export class QuestionService {
 
   public async getByFilters(filters: QuestionFilters): Promise<Question[]> {
     const subjectRepository = {
-      1: 'matematica',
+      1: 'contabilidade',
       2: 'portugues',
       3: 'historia',
       4: 'geografia'

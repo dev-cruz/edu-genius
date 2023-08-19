@@ -2,7 +2,7 @@ import { Question } from '../entitites/question.entity';
 
 export type QuestionFilters = {
   subjectId: number;
-  level: 'easy' | 'medium' | 'hard';
+  level: number;
   numberOfQuestions: number;
 };
 
