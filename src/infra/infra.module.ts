@@ -6,5 +6,6 @@ import { OpenAIService } from 'src/openAI/openAIService';
 @Module({
   imports: [ConfigModule.forRoot()],
   providers: [OpenAIService, OpenAIConfig],
+  exports: [OpenAIService],
 })
-export class InfraModule {}
+export class InfraModule { }

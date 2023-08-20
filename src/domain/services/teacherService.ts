@@ -1,15 +1,15 @@
 import { Injectable } from '@nestjs/common';
+import { Teacher } from '@prisma/client';
 import { ContentCreateDto } from 'src/application/dtos/contentCreateDto';
 import { ContentResultDto } from 'src/application/dtos/contentResultDto';
+import { ContentReviewDto } from 'src/application/dtos/contentReviewDto';
 import { TeacherCreateDto } from 'src/application/dtos/teacherCreateDto';
-import { Teacher } from 'src/domain/entities/teacher.entity';
 
 @Injectable()
 export class TeacherService {
   public async registerTeacher(teacher: TeacherCreateDto): Promise<Teacher> {
-    const teacherEntity = new Teacher(teacher);
     // Find or create teacher
-    return teacherEntity;
+    return teacher as Teacher;
   }
 
   public async createContent(
@@ -17,6 +17,10 @@ export class TeacherService {
   ): Promise<ContentResultDto> {
     // Create content
     // Create content results via OpenAI
-    return content;
+    return {} as ContentResultDto;
+  }
+
+  public async submitContentReview(review: ContentReviewDto): Promise<void> {
+    // Submit content review
   }
 }
