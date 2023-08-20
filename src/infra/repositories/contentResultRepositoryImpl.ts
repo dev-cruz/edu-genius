@@ -21,4 +21,12 @@ export class ContentResultRepositoryImpl implements IContentResultRepository {
 
     return createdContentResults;
   }
+
+  async findByContentId(content_id: number): Promise<ContentResult[]> {
+    return this.prisma.contentResult.findMany({
+      where: {
+        content_id,
+      },
+    });
+  }
 }

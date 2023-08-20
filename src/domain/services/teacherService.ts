@@ -36,60 +36,45 @@ export class TeacherService {
   public async createContent(
     content: ContentCreateDto,
   ): Promise<ContentResultDto> {
-    const createdSubject = await this.createSubject(
-      content.subject_id,
-      content.title,
+    const subject = await this.getSubject(content.subject_id);
+
+    const createdContent = await this.createNewContent(
+      subject.name,
+      content.content,
+      subject,
     );
 
-    const createdContent = await this.createNewContent(content, createdSubject);
+    const existingContentResults =
+      await this.contentResultRepository.findByContentId(createdContent.id);
+
+    if (existingContentResults.length > 0) {
+      return this.parseContentResult(existingContentResults);
+    }
 
     const createdContentResults = await this.createContentResults(
-      content.title,
+      subject.name,
       createdContent,
     );
 
-    const contentResults = createdContentResults.map((contentResult) => ({
-      id: contentResult.id,
-      content_id: contentResult.content_id,
-      level: contentResult.level,
-      content: fileHelper.readFile(contentResult.filepath),
-    }));
-
-    return {
-      contentResults,
-    };
+    return this.parseContentResult(createdContentResults);
   }
 
   public async submitContentReview(review: ContentReviewDto): Promise<void> {
     // Submit content review
   }
 
-  private async createSubject(
-    subjectId: number,
-    title: string,
-  ): Promise<Subject> {
-    const parentSubject = await this.subjectRepository.findByID(subjectId);
-    let createdSubject;
-    if (parentSubject) {
-      createdSubject = await this.subjectRepository.findOrCreate({
-        name: title,
-        parent_id: parentSubject.id,
-      });
-      return parentSubject;
-    }
-    createdSubject = await this.subjectRepository.findOrCreate({
-      name: title,
-    });
-
-    return createdSubject;
+  private async getSubject(subjectId: number): Promise<Subject> {
+    const subject = await this.subjectRepository.findByID(subjectId);
+    return subject;
   }
 
   private async createNewContent(
-    content: ContentCreateDto,
+    title: string,
+    content: string,
     createdSubject: Subject,
   ): Promise<Content> {
-    const filepath = path.join(__dirname, 'files', `${content.title}.txt`);
-    fileHelper.writeFile(filepath, content.content);
+    const filepath = path.join(__dirname, 'files', `${title}.txt`);
+    fileHelper.writeFile(filepath, content);
     const contentToSave = {
       subject_id: createdSubject.id,
       filepath,
@@ -151,5 +136,18 @@ export class TeacherService {
     fileHelper.writeFile(filePath, generatedText);
 
     return filePath;
+  }
+
+  private parseContentResult(
+    contentResults: ContentResult[],
+  ): ContentResultDto {
+    return {
+      contentResults: contentResults.map((contentResult) => ({
+        id: contentResult.id,
+        content_id: contentResult.content_id,
+        content: fileHelper.readFile(contentResult.filepath),
+        level: contentResult.level,
+      })),
+    };
   }
 }

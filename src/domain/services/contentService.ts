@@ -9,12 +9,16 @@ export class ContentService {
   constructor(
     @Inject('CONTENT_REPOSITORY')
     private readonly contentRepository: IContentRepository,
-  ) {}
+  ) { }
 
   public async getContentsBySubject(
     subject_id: number,
   ): Promise<GetContentsResultDto> {
     const [content] = await this.contentRepository.findBySubjectId(subject_id);
+    if (!content) {
+      return null;
+    }
+
     const { id, filepath, ContentResult } = content;
     const contentResultsfiles = ContentResult.map(({ filepath }) => filepath);
 
@@ -30,7 +34,6 @@ export class ContentService {
       originalContent: {
         id,
         content: originalContentText,
-        subject_id,
       },
       contentsResults,
     };
