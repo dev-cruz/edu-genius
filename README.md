@@ -1,4 +1,9 @@
-## Edu Genius API
+# Edu Genius API
+
+### Modelo de Negócios e Documentação:
+- [Documentação](./docs/documentation.md)
+- [Tecnologias](./docs/techDecisions.md)
+- [Requisitos Técnicos](./docs/development.md)
 
 Esta é a API responsavel por servir a pagina [EduGenius](https://github.com/DhBarboza/frontend-edu-genius)
 
