@@ -19,7 +19,7 @@ const repositories = [
 
 @Module({
   imports: [ConfigModule.forRoot()],
-  providers: [OpenAIService, OpenAIConfig],
+  providers: [...repositories, OpenAIService, OpenAIConfig],
   exports: [...repositories, OpenAIService],
 })
 export class InfraModule {}
