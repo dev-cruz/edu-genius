@@ -17,7 +17,7 @@ export class AppController {
     private readonly teacherService: TeacherService,
     private readonly contentService: ContentService,
     private readonly subjectService: SubjectService,
-  ) { }
+  ) {}
 
   @Post('/register_teacher')
   async registerTeacher(@Body() teacher: TeacherCreateDto): Promise<Teacher> {
@@ -54,5 +54,10 @@ export class AppController {
   @Get('/list_subjects')
   async listSubjects(): Promise<Subject[]> {
     return this.subjectService.listSubjects();
+  }
+
+  @Get('/subject/:id')
+  async getSubject(id: number): Promise<Subject> {
+    return this.subjectService.findById(id);
   }
 }

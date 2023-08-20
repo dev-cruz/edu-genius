@@ -17,4 +17,8 @@ export class SubjectService {
   public async listSubjects(): Promise<Subject[]> {
     return this.subjectRepository.findAll();
   }
+
+  public async findById(id: number): Promise<Subject> {
+    return this.subjectRepository.findByID(id);
+  }
 }
