@@ -1,3 +1,3 @@
 export type getContentsBySubjectDto = {
-  subject_id: string;
+  subject_id: number;
 };

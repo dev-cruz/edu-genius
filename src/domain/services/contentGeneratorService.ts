@@ -3,7 +3,7 @@ import { OpenAIService } from 'src/openAI/openAIService';
 
 @Injectable()
 export class ContentGeneratorService {
-  constructor(private readonly openAIService: OpenAIService) { }
+  constructor(private readonly openAIService: OpenAIService) {}
 
   async generateSubejcts(content: string, contentLevel: string): Promise<any> {
     const prompt = this.generatePrompt(content, contentLevel);

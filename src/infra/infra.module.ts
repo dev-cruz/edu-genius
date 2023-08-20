@@ -19,4 +19,4 @@ const repositories = [
   providers: [OpenAIService, OpenAIConfig],
   exports: [...repositories, OpenAIService],
 })
-export class InfraModule { }
+export class InfraModule {}
