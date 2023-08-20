@@ -1,14 +1,33 @@
 ## EduGenius 
 
-Uma plataforma dedicada ao suporte e nivelamento de conhecimento de estudantes, oferecendo uma abordagem gamificada para identificação de desafios e pontos positivos do aluno. Além disso, a plataforma inclui um sistema para a prática de atividades, aliviando os professores do ônus de criar exercícios e responder dúvidas.
+Plataforma educacional com o propósito de aprimorar a compreensão dos alunos em relação a conteúdos desafiadores e proporcionar suporte adicional àqueles que enfrentam dificuldades, com o objetivo de incentivar uma maior persistência no processo de aprendizado e evitar a evasão escolar. Esse esforço desempenha um papel crucial em manter os alunos engajados e continuando seus estudos, o que é de extrema importância para o seu desenvolvimento educacional e futuro.
 
 ### Descrição do problema:
 
-A retenção de alunos no ensino é prejudicada pela escassez de apoio dos professores no esclarecimento de dúvidas e pela ausência de nivelamento de conhecimento. A falta de orientação imediata para abordar dificuldades leva à desmotivação e à sensação de desamparo, impactando a continuidade dos estudos. Além disso, a disparidade de conhecimento entre os alunos gera desequilíbrios na sala de aula, prejudicando o engajamento e a aprendizagem. Soluções como plataformas online de suporte e estratégias de ensino adaptativo podem ser cruciais para mitigar esses problemas, valorizando o suporte individualizado e promovendo um ambiente educacional mais inclusivo e eficaz.
-
-Em última análise, a retenção de alunos no ensino está intrinsecamente ligada à qualidade do suporte oferecido aos estudantes. A disponibilidade de recursos para esclarecimento de dúvidas e a implementação de estratégias para nivelar o conhecimento dos alunos são fatores cruciais para manter o engajamento, a motivação e o sucesso educacional dos alunos. Sem um ambiente educacional que valorize o suporte individualizado e o nivelação adequada, a retenção de alunos continuará sendo um desafio persistente para as instituições educacionais.
+A falta de apoio dos professores para esclarecer dúvidas e a ausência de nivelamento de conhecimento prejudicam a retenção escolar. A falta de orientação imediata desmotiva os alunos, enquanto a disparidade de conhecimento gera desequilíbrios na sala de aula. Soluções como plataformas online de suporte e estratégias de ensino adaptativo podem ajudar a resolver esses problemas, promovendo um ambiente educacional mais inclusivo e eficaz. Em resumo, o suporte individualizado e o nivelamento de conhecimento são fundamentais para manter os alunos engajados e motivados, contribuindo para uma educação de qualidade e reduzindo a evasão.
 
 ### Solução proposta:
 
-A plataforma EduGenius propõe uma solução para enfrentar esses desafios por meio da criação de um sistema que simplifica o acesso dos alunos a recursos de aprendizado e assistência. A instituição oferece um ambiente onde os alunos podem se envolver em práticas, acessar materiais de referência e obter respostas claras e precisas, tudo isso sem depender diretamente de interações com professores ou tutores. Além disso, a plataforma adota uma abordagem de gamificação, tornando as práticas mais envolventes e dinâmicas, afastando a sensação de tarefas monótonas e inflexíveis. Estratégias de ensino adaptativas e diversificadas também são implementadas para equilibrar o conhecimento dos alunos, atendendo às suas necessidades individuais e fomentando um ambiente inclusivo e estimulante.
+A plataforma EduGenius foi concebida para ampliar a eficiência educacional. Por meio do conteúdo fornecido e preparado pelo professor para suas aulas, a plataforma incorpora inteligência artificial para oferecer perspectivas explicativas simplificadas. Isso permite aos alunos aprofundarem seus estudos de maneira independente, sem sobrecarregar o professor, enquanto também promove respostas quase imediatas. A utilização da plataforma proporciona a obtenção de dados mais precisos, que desempenham um papel fundamental na análise qualitativa do ensino.
 
+## Benefícios e Valor:
+
+A plataforma proporciona uma notável economia de tempo e alivia a carga de trabalho do professor. Isso acontece uma vez que a inteligência artificial assume a responsabilidade pela criação do material de apoio ao aluno, resultando em um incremento da eficiência e do envolvimento dos estudantes. Essa abordagem também contribui para minimizar a frustração de dúvidas pouco esclarecidas.
+Além de sua função como coletora de informações, a plataforma também atua como uma fonte essencial para análises. Esses insights fornecem uma base sólida para melhorias na qualidade do ensino, permitindo um aprimoramento contínuo.
+
+## Público Alvo:
+
+Principalmente voltado para instituições educacionais de todos os níveis, com destaque para o ensino fundamental e médio.
+
+## Custos associados:
+Os encargos estão relacionados à adoção do recurso de Inteligência Artificial da OpenIA. A estrutura de custos atual envolve taxas para as operações de entrada e saída de dados, conforme o exemplo a seguir:
+- Taxa de entrada: $0.0015 por 1.000 tokens
+- Taxa de saída: $0.002 por 1.000 tokens
+
+Em nosso ambiente, cada requisição consome, em média, entre 1.200 e 2.000 tokens. A distribuição desses tokens é a seguinte:
+- Entrada: Entre 400 e 800 tokens
+- Saída: Entre 800 e 1.200 tokens.
+
+## Passos futuros:
+
+Desenvolvimento de uma ferramenta de análise de dados que desempenha um papel crucial ao examinar e rastrear conjuntos de dados. A partir dessa análise, ela gera insights valiosos sobre a excelência dos materiais utilizados, bem como detecta áreas passíveis de aprimoramento. Além disso, a ferramenta identifica desafios específicos enfrentados pelos alunos, contribuindo para uma compreensão mais profunda de suas dificuldades e proporcionando oportunidades de melhorias educacionais.
