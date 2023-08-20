@@ -1,4 +1,4 @@
-Edu Genius API
+# Edu Genius API
 
 Esta é a API responsavel por servir a pagina [EduGenius](https://github.com/DhBarboza/frontend-edu-genius)
 
@@ -21,3 +21,6 @@ Utilizar o makefile para configuração inicial do banco
   make setup-db
 ```
 Este comando irá criar o banco com as suas respectivas tabelas, e inserir os dados de materias necessários
+
+
+### [Desenvolvimento do Projeto](https://github.com/dev-cruz/edu-genius/docs/development.md)
