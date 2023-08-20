@@ -13,8 +13,8 @@ export class ContentGeneratorService {
 
   private generatePrompt(content: string, contentLevel: string): string {
     if (contentLevel === 'simplified') {
-      return `Explain the following content as if were for a 5 years old child.\n content: ${content}\n`;
+      return `Explique o seguinte conteudo para uma criança de 5 anos.\n conteudo: ${content}\n`;
     }
-    return `Explain the following content from a different perspective.\n content: ${content} \n`;
+    return `Explique o seguinte conteudo de uma perspectiva diferente.\n conteudo: ${content} \n`;
   }
 }
