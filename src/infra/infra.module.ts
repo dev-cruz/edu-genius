@@ -10,11 +10,8 @@ import { OpenAIService } from 'src/openAI/openAIService';
 
 const repositories = [
   TeacherRepositoryImpl,
-  {
-    provide: 'SUBJECT_REPOSITORY',
-    useClass: SubjectRepositoryImpl,
-  },
-  ContentRepositoryImpl,
+  { provide: 'SUBJECT_REPOSITORY', useClass: SubjectRepositoryImpl },
+  { provide: 'CONTENT_REPOSITORY', useClass: ContentRepositoryImpl },
   ContentResultRepositoryImpl,
 ];
 
@@ -23,4 +20,4 @@ const repositories = [
   providers: [...repositories, OpenAIService, OpenAIConfig, PrismaClient],
   exports: [...repositories, OpenAIService],
 })
-export class InfraModule { }
+export class InfraModule {}

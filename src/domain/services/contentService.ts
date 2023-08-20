@@ -7,7 +7,8 @@ import { IContentRepository } from 'src/domain/repositories/contentRepository';
 @Injectable()
 export class ContentService {
   constructor(
-    @Inject() private readonly contentRepository: IContentRepository,
+    @Inject('CONTENT_REPOSITORY')
+    private readonly contentRepository: IContentRepository,
   ) {}
 
   public async getContentsBySubject(
