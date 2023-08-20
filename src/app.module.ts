@@ -9,4 +9,4 @@ import { DomainModule } from 'src/domain/domain.module';
   controllers: [AppController],
   providers: [OpenAIService, OpenAIConfig],
 })
-export class AppModule { }
+export class AppModule {}
