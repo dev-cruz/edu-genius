@@ -19,7 +19,7 @@
   - Exibir o conteudo aprovado pelo professor;
 
 
-### [Decisões Técnicas](https://github.com/dev-cruz/edu-genius/docs/techDecisions.md)
+### [Decisões Técnicas](https://github.com/dev-cruz/edu-genius/tree/main/docs/techDecisions.md)
 
 **Features futuras**:
 - Buscar o conteúdo por embeddings;

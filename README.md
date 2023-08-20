@@ -23,4 +23,4 @@ Utilizar o makefile para configuração inicial do banco
 Este comando irá criar o banco com as suas respectivas tabelas, e inserir os dados de materias necessários
 
 
-[Desenvolvimento do Projeto](https://github.com/dev-cruz/edu-genius/docs/development.md)
+[Desenvolvimento do Projeto](https://github.com/dev-cruz/edu-genius/tree/main/docs/development.md)
