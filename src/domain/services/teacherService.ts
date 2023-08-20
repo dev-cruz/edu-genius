@@ -5,21 +5,25 @@ import { ContentResultDto } from 'src/application/dtos/contentResultDto';
 import { ContentReviewDto } from 'src/application/dtos/contentReviewDto';
 import { TeacherCreateDto } from 'src/application/dtos/teacherCreateDto';
 import { ContentGeneratorService } from 'src/domain/services/contentGeneratorService';
-import { ContentRepositoryImpl } from 'src/infra/repositories/contentRepositoryImpl';
-import { TeacherRepositoryImpl } from 'src/infra/repositories/teacherRepositoryImpl';
 import * as fileHelper from 'src/domain/file/fileHelper';
-import { ContentResultRepositoryImpl } from 'src/infra/repositories/contentResultRepositoryImpl';
 import * as path from 'path';
 import { ISubjectRepository } from 'src/domain/repositories/subjectRepository';
+import { ITeacherRepository } from 'src/domain/repositories/teacherRepository';
+import { IContentRepository } from 'src/domain/repositories/contentRepository';
+import { IContentResultRepository } from 'src/domain/repositories/contentResultRepository';
 
 @Injectable()
 export class TeacherService {
   constructor(
-    private readonly teacherRepository: TeacherRepositoryImpl,
-    private readonly contentRepository: ContentRepositoryImpl,
-    private readonly contentResultRepository: ContentResultRepositoryImpl,
+    @Inject('TEACHER_REPOSITORY')
+    private readonly teacherRepository: ITeacherRepository,
+    @Inject('CONTENT_REPOSITORY')
+    private readonly contentRepository: IContentRepository,
+    @Inject('CONTENT_RESULT_REPOSITORY')
+    private readonly contentResultRepository: IContentResultRepository,
     @Inject('SUBJECT_REPOSITORY')
     private readonly subjectRepository: ISubjectRepository,
+
     private readonly contentGeneratorService: ContentGeneratorService,
   ) { }
 
