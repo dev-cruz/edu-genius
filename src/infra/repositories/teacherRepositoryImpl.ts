@@ -1,8 +1,9 @@
+import { Inject } from '@nestjs/common';
 import { PrismaClient, Teacher } from '@prisma/client';
 import { ITeacherRepository } from 'src/domain/repositories/teacherRepository';
 
 export class TeacherRepositoryImpl implements ITeacherRepository {
-  constructor(private readonly prisma: PrismaClient) {}
+  constructor(@Inject(PrismaClient) private readonly prisma: PrismaClient) { }
 
   async findOrCreateTeacher(teacher: {
     name: string;
