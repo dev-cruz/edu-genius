@@ -18,8 +18,6 @@ model Subject {
   name      String
   parent_id Int?
   Content   Content[]
-  parent    Subject?  @relation("SubjectParent", fields: [parent_id], references: [id])
-  children  Subject[] @relation("SubjectParent")
 }
 
 model Content {

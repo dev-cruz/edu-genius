@@ -4,12 +4,13 @@ Do lado admin (professor):
 - Teremos uma base de conteudos que sera persistida por um professor da escola.
   - Ele deve inserir um topico, uma matéria e um texto contendo a explicacao;
   - A aplicação irá retornar o mesmo conteúdo explicado de 2 formas diferentes:
-    - Nível criança de 8 anos;
-    - Nível ponto de vista diferente;
+    - Explicação para leigos, o mais simples possivel;
+    - Explicação extendida, elaborando melhor os temas do conteudo;
     - E insere na base;
   - O professor valida as versões:
     - Se tiver válido o conteúdo atualiza o status para `approved`;
     - Se nao tiver valido o conteúdo atualiza o status para `rejected`;
+  - O professor pode pedir para gerar novas respostas, ou sobrescrever o conteudo base para ter respostas diferentes
 
 Do lado cliente (aluno):
   - Escolher qual conteúdo;
@@ -25,26 +26,25 @@ Features pra depois:
 
 
 Teremos uma base de dados para:
-# Subject
-  - name;
-  - parent_id;
-- O professor se cadastrar como admin;
 # Teacher
   - name
   - email
-- O professor cadastrar o conteúdo que conterá:
-# Content
+
+# Subject - A matéria/topico, apontando para qual outra materia/topico pertence;
+  - name;
+  - parent_id;
+
+# Content - Material Base cadastrado pelo professor
   - subject_id;
   - content; (link arquivo no s3)
-- A aplicação vai gerar os conteúdos:
-# ContentResult
+
+# ContentResult - Material gerado pela aplicação
   - content_id;
   - content; (link arquivo no s3)
-  - level;
+  - level (simplefied | expanded);
 
 
 Rotas
-Para os dois:
 Para o professor:
 /register_teacher
 request: {
@@ -90,10 +90,7 @@ request: {
 response: ok
 
 Para o aluno:
-/get_contents_by_subject
-request: {
-  subject_id: 1
-}
+/get_contents_by_subject/:id
 response: {
   originalContent: {
     id: 1,
