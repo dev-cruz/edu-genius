@@ -1,5 +1,6 @@
 import { Inject } from '@nestjs/common';
 import { PrismaClient, Subject } from '@prisma/client';
+import { SubjectCreateDto } from 'src/application/dtos/subjectCreateDto';
 import { ISubjectRepository } from 'src/domain/repositories/subjectRepository';
 
 export class SubjectRepositoryImpl implements ISubjectRepository {
@@ -13,6 +14,12 @@ export class SubjectRepositoryImpl implements ISubjectRepository {
       include: {
         children: true,
       },
+    });
+  }
+
+  async create(subject: SubjectCreateDto): Promise<Subject> {
+    return this.prisma.subject.create({
+      data: subject,
     });
   }
 }

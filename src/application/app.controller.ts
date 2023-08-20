@@ -9,6 +9,7 @@ import { ContentService } from 'src/domain/services/contentService';
 import { getContentsBySubjectDto } from 'src/application/dtos/getContentDto';
 import { GetContentsResultDto } from 'src/application/dtos/getContentsResultDto';
 import { SubjectService } from 'src/domain/services/subjectService';
+import { SubjectCreateDto } from 'src/application/dtos/subjectCreateDto';
 
 @Controller()
 export class AppController {
@@ -33,6 +34,12 @@ export class AppController {
   @Post('/submit_content_review')
   async submitContentReview(@Body() review: ContentReviewDto): Promise<string> {
     this.teacherService.submitContentReview(review);
+    return 'ok';
+  }
+
+  @Post('/create_subject')
+  async createSubject(@Body() subject: SubjectCreateDto): Promise<string> {
+    this.subjectService.create(subject);
     return 'ok';
   }
 
