@@ -8,3 +8,4 @@ quero-boot-startup:
 setup-db:
 		npm i
 		npx prisma db push
+		npx prisma generate
