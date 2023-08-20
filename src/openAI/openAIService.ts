@@ -11,8 +11,6 @@ export class OpenAIService {
       model: 'gpt-3.5-turbo',
     });
 
-    console.log(completion.choices);
-
     return completion.choices;
   }
 }

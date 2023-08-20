@@ -17,7 +17,7 @@ export class AppController {
     private readonly teacherService: TeacherService,
     private readonly contentService: ContentService,
     private readonly subjectService: SubjectService,
-  ) {}
+  ) { }
 
   @Post('/register_teacher')
   async registerTeacher(@Body() teacher: TeacherCreateDto): Promise<Teacher> {

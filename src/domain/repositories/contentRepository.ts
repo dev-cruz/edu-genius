@@ -5,6 +5,9 @@ export type ContentWithContentResult = Content & {
 };
 
 export interface IContentRepository {
-  save(content: Record<string, any>): Promise<Content>;
   findBySubjectId(subjectId: number): Promise<ContentWithContentResult[]>;
+  saveOrUpdate(content: {
+    subject_id: number;
+    filepath: string;
+  }): Promise<Content>;
 }

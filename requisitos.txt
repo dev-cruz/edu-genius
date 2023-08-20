@@ -60,6 +60,7 @@ response: {
 /create_content
 request: {
   subject_id: 1,
+  title: "algebra"
   content: "Matematica eh bem legal"
 }
 response: {
