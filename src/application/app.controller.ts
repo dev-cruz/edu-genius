@@ -3,18 +3,19 @@ import { TeacherCreateDto } from 'src/application/dtos/teacherCreateDto';
 import { ContentCreateDto } from 'src/application/dtos/contentCreateDto';
 import { ContentResultDto } from 'src/application/dtos/contentResultDto';
 import { TeacherService } from 'src/domain/services/teacherService';
-import { Teacher } from '@prisma/client';
+import { Subject, Teacher } from '@prisma/client';
 import { ContentReviewDto } from 'src/application/dtos/contentReviewDto';
 import { ContentService } from 'src/domain/services/contentService';
 import { getContentsBySubjectDto } from 'src/application/dtos/getContentDto';
 import { GetContentsResultDto } from 'src/application/dtos/getContentsResultDto';
-import { SubjectListDto } from 'src/application/dtos/subjectListDto';
+import { SubjectService } from 'src/domain/services/subjectService';
 
 @Controller()
 export class AppController {
   constructor(
     private readonly teacherService: TeacherService,
     private readonly contentService: ContentService,
+    private readonly subjectService: SubjectService,
   ) {}
 
   @Post('/register_teacher')
@@ -43,7 +44,7 @@ export class AppController {
   }
 
   @Get('/list_subjects')
-  async listSubjects(): Promise<SubjectListDto> {
-    return this.contentService.listSubjects();
+  async listSubjects(): Promise<Subject[]> {
+    return this.subjectService.listSubjects();
   }
 }

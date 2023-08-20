@@ -9,7 +9,10 @@ import { OpenAIService } from 'src/openAI/openAIService';
 
 const repositories = [
   TeacherRepositoryImpl,
-  SubjectRepositoryImpl,
+  {
+    provide: 'SUBJECT_REPOSITORY',
+    useClass: SubjectRepositoryImpl,
+  },
   ContentRepositoryImpl,
   ContentResultRepositoryImpl,
 ];
