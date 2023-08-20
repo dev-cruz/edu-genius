@@ -1,4 +1,4 @@
 export type ContentReviewDto = {
-  content_result_id: string;
+  content_result_id: number;
   status: string;
 };

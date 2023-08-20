@@ -25,7 +25,7 @@ export class TeacherService {
     private readonly subjectRepository: ISubjectRepository,
 
     private readonly contentGeneratorService: ContentGeneratorService,
-  ) {}
+  ) { }
 
   public async registerTeacher(teacher: TeacherCreateDto): Promise<Teacher> {
     const createdTeacher =
@@ -60,7 +60,18 @@ export class TeacherService {
   }
 
   public async submitContentReview(review: ContentReviewDto): Promise<void> {
-    // Submit content review
+    const contentResult = await this.contentResultRepository.findByID(
+      review.content_result_id,
+    );
+
+    if (!contentResult) {
+      throw new Error('ContentResult not found');
+    }
+
+    await this.contentResultRepository.updateStatus(
+      contentResult.id,
+      review.status,
+    );
   }
 
   private async getSubject(subjectId: number): Promise<Subject> {

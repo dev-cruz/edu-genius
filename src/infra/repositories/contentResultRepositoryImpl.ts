@@ -22,10 +22,29 @@ export class ContentResultRepositoryImpl implements IContentResultRepository {
     return createdContentResults;
   }
 
+  async updateStatus(id: number, status: string): Promise<ContentResult> {
+    return this.prisma.contentResult.update({
+      where: {
+        id,
+      },
+      data: {
+        status,
+      },
+    });
+  }
+
   async findByContentId(content_id: number): Promise<ContentResult[]> {
     return this.prisma.contentResult.findMany({
       where: {
         content_id,
+      },
+    });
+  }
+
+  async findByID(id: number): Promise<ContentResult> {
+    return this.prisma.contentResult.findUnique({
+      where: {
+        id,
       },
     });
   }
