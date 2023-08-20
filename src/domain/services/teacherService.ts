@@ -4,12 +4,17 @@ import { ContentCreateDto } from 'src/application/dtos/contentCreateDto';
 import { ContentResultDto } from 'src/application/dtos/contentResultDto';
 import { ContentReviewDto } from 'src/application/dtos/contentReviewDto';
 import { TeacherCreateDto } from 'src/application/dtos/teacherCreateDto';
+import { ITeacherRepository } from 'src/domain/repositories/teacherRepository';
+import { TeacherRepositoryImpl } from 'src/infra/repositories/teacherRepositoryImpl';
 
 @Injectable()
 export class TeacherService {
+  constructor(private readonly teacherRepository: TeacherRepositoryImpl) { }
+
   public async registerTeacher(teacher: TeacherCreateDto): Promise<Teacher> {
-    // Find or create teacher
-    return teacher as Teacher;
+    const createdTeacher =
+      await this.teacherRepository.findOrCreateTeacher(teacher);
+    return createdTeacher;
   }
 
   public async createContent(

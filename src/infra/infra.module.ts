@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
+import { PrismaClient } from '@prisma/client';
 import { ContentRepositoryImpl } from 'src/infra/repositories/contentRepositoryImpl';
 import { ContentResultRepositoryImpl } from 'src/infra/repositories/contentResultRepositoryImpl';
 import { SubjectRepositoryImpl } from 'src/infra/repositories/subjectRepositoryImpl';
@@ -19,7 +20,7 @@ const repositories = [
 
 @Module({
   imports: [ConfigModule.forRoot()],
-  providers: [...repositories, OpenAIService, OpenAIConfig],
+  providers: [...repositories, OpenAIService, OpenAIConfig, PrismaClient],
   exports: [...repositories, OpenAIService],
 })
-export class InfraModule {}
+export class InfraModule { }
