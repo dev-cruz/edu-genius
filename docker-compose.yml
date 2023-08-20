@@ -11,7 +11,7 @@ services:
       DATABASE_URL: "postgresql://postgres:postgres@db:5432/edu-genius?schema=public"
     volumes:
       - .:/app:cached
-      - edu-genius-node-modules:/app/node_modules
+      - edu-genius-node-modules:/app/node_modules:delegated
     depends_on:
       - db
 

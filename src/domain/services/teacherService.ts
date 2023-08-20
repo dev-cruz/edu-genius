@@ -25,7 +25,7 @@ export class TeacherService {
     private readonly subjectRepository: ISubjectRepository,
 
     private readonly contentGeneratorService: ContentGeneratorService,
-  ) { }
+  ) {}
 
   public async registerTeacher(teacher: TeacherCreateDto): Promise<Teacher> {
     const createdTeacher =
@@ -107,11 +107,13 @@ export class TeacherService {
         level: 'simplified',
         filepath: simplifiedContentFilePath,
         content_id: createdContent.id,
+        status: 'pending',
       },
       {
         level: 'expanded',
         filepath: expandedContentFilePath,
         content_id: createdContent.id,
+        status: 'pending',
       },
     ]);
 
@@ -147,6 +149,7 @@ export class TeacherService {
         content_id: contentResult.content_id,
         content: fileHelper.readFile(contentResult.filepath),
         level: contentResult.level,
+        status: contentResult.status,
       })),
     };
   }

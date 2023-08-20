@@ -37,6 +37,7 @@ model ContentResult {
   id         Int     @id @default(autoincrement())
   level      String
   filepath   String
+  status     String
   content_id Int
   content    Content @relation(fields: [content_id], references: [id])
 }
