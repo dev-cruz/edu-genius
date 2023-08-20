@@ -9,7 +9,7 @@ export class ContentService {
   constructor(
     @Inject('CONTENT_REPOSITORY')
     private readonly contentRepository: IContentRepository,
-  ) {}
+  ) { }
 
   public async getContentsBySubject(
     subject_id: number,
@@ -55,14 +55,16 @@ export class ContentService {
     contentResult: ContentResult[],
     contentResultTexts: string[],
   ) {
-    return contentResult.map(({ id, level, status }, index) => {
-      return {
-        id,
-        level,
-        status,
-        content: contentResultTexts[index],
-      };
-    });
+    return contentResult
+      .map(({ id, level, status }, index) => {
+        return {
+          id,
+          level,
+          status,
+          content: contentResultTexts[index],
+        };
+      })
+      .filter(({ status }) => status === 'approved');
   }
 
   private async readFile(filename) {
