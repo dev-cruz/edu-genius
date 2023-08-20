@@ -38,9 +38,10 @@ export class AppController {
   }
 
   @Post('/create_subject')
-  async createSubject(@Body() subject: SubjectCreateDto): Promise<string> {
-    this.subjectService.create(subject);
-    return 'ok';
+  async createSubject(
+    @Body() subject: SubjectCreateDto,
+  ): Promise<SubjectCreateDto> {
+    return this.subjectService.create(subject);
   }
 
   @Get('/get_contents_by_subject')
